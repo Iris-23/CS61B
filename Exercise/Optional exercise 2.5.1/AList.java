@@ -13,8 +13,17 @@ public class AList {
 
     /** Inserts X into the back of the list. */
     public void addLast(int x) {
-      array[size]=x;
-      size=size+1;
+        if(size<=99){
+            array[size]=x;
+            size=size+1;
+        }
+        else {
+            int[] a = new int[size + 1];
+            System.arraycopy(array, 0, a, 0, size);
+            a[size] = 11;
+            array = a;
+            size = size + 1;
+        }
     }
 
     /** Returns the item from the back of the list. */
